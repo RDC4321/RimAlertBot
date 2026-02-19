@@ -31,22 +31,33 @@ It provides NBA scores, live game updates, team-specific schedules, and upcoming
 - Python virtual environment isolation
 - Environment variables managed via `.env`
 - Manual lifecycle management (start/stop/terminate EC2)
-
+- Integrated third-party REST API (balldontlie)
 ---
 
 ## Screenshots
 
 ### Bot Running on AWS EC2
-![SSH Running](screenshots/your-ssh-screenshot-name.png)
+![SSH Running](screenshots/ubuntu-ssh-start.jpg)
 
 ### EC2 Instance Status
-![EC2 Instance](screenshots/your-ec2-screenshot-name.png)
+![EC2 Instance](screenshots/EC2-instance-1.jpg)
 
 ### Telegram Bot Features
-![Start Command](screenshots/your-start-screenshot-name.png)
-![Score Command](screenshots/your-score-screenshot-name.png)
-![Team Command](screenshots/your-team-screenshot-name.png)
-![Schedule Command](screenshots/your-schedule-screenshot-name.png)
+
+#### /start Command
+![Start Command](screenshots/rimalert1.jpg)
+
+#### /live Command
+![Live Command](screenshots/rimalert2.jpg)
+
+#### /score Command
+![Score Command](screenshots/rimalert3.jpg)
+
+#### /team Command
+![Team Command](screenshots/rimalert4.jpg)
+
+#### /schedule Command
+![Schedule Command](screenshots/rimalert5.jpg)
 
 ---
 
@@ -54,9 +65,10 @@ It provides NBA scores, live game updates, team-specific schedules, and upcoming
 
 - Refactored multi-request team lookup into a single optimized API call
 - Implemented ISO date validation
-- Handled async Telegram command architecture
-- Managed EC2 lifecycle and persistence
+- Handled async command architecture using `python-telegram-bot`
+- Managed EC2 lifecycle and server persistence
 - Secured API keys using environment variables
+- Prevented unnecessary API calls through input validation logic
 
 ---
 
@@ -64,9 +76,26 @@ It provides NBA scores, live game updates, team-specific schedules, and upcoming
 
 ```bash
 git clone https://github.com/RDC4321/RimAlertBot.git
-cd RimAlertBot
-python -m venv venv
-pip install -r requirements.txt
-create .env file with BOT_TOKEN and BALLDONTLIE_API_KEY
-python bot.py
 
+cd RimAlertBot
+
+python -m venv venv
+
+pip install -r requirements.txt
+
+Create a .env file in the project root:
+BOT_TOKEN=your_telegram_bot_token
+BALLDONTLIE_API_KEY=your_api_key
+
+Run the bot:
+python bot.py
+```
+---
+
+## Future Improvements
+
+- Convert to systemd service for automatic restart on crash
+- Dockerize deployment
+- Add logging and monitoring vis AWS CloudWatch
+- Implement webhook-based architecture
+- Add user favorites and persistent storage
