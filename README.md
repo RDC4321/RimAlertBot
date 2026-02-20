@@ -53,11 +53,14 @@ It provides NBA scores, live game updates, team-specific schedules, and upcoming
 #### /score Command
 ![Score Command](screenshots/rimalert3.jpg)
 
+#### /score Input Validation
+![Score Command](screenshots/rimalert4.jpg)
+
 #### /team Command
-![Team Command](screenshots/rimalert4.jpg)
+![Team Command](screenshots/rimalert6.jpg)
 
 #### /schedule Command
-![Schedule Command](screenshots/rimalert5.jpg)
+![Schedule Command](screenshots/rimalert7.jpg)
 
 ---
 
